@@ -56,8 +56,8 @@ def git_commit(commit_message):
 
     cmd = "git commit -a -m \"" + commit_message + "\""
     os.system("cd ..")
-    # os.system(cmd)
-    print(cmd)
+    os.system(cmd)
+    # print(cmd)
 
 
 # -------------------------------------------------------------------------------- #
