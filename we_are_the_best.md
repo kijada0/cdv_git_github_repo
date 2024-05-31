@@ -4,4 +4,4 @@
 
 --- 
 
-# We are the best for: 47 days in a row
+# We are the best for: 48 days in a row
