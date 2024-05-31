@@ -4,3 +4,7 @@
 - Address: 1234 Street, City, Country
 
 --- 
+
+![mapa](photos/map.png)
+
+---
