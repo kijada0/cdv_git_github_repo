@@ -1,4 +1,5 @@
 import os
+import time
 
 # -------------------------------------------------------------------------------- #
 
@@ -13,15 +14,19 @@ def main():
     file_list = os.listdir(repo_path)
     print(file_list)
 
-    # Update the file
-    counter = 2
-    file_path = os.path.join(repo_path, file_name_to_modify)
-    update_file(file_path, counter)
+    for counter in range(3, 50+1):
+        # Update the file
+        file_path = os.path.join(repo_path, file_name_to_modify)
+        update_file(file_path, counter)
 
-    # Git commit
-    commit_message = "Update certificate, we are now the best for {} days in a row".format(counter)
-    git_commit(commit_message)
+        # Git commit
+        commit_message = "Update certificate, we are now the best for {} days in a row".format(counter)
+        git_commit(commit_message)
 
+        time.sleep(0.25)
+
+
+# -------------------------------------------------------------------------------- #
 
 def update_file(file_name, counter):
     print("Updating file: ", file_name)
@@ -44,12 +49,15 @@ def update_file(file_name, counter):
         file.writelines(file_content)
 
 
+# -------------------------------------------------------------------------------- #
+
 def git_commit(commit_message):
     print("Committing changes to git")
 
     cmd = "git commit -a -m \"" + commit_message + "\""
     os.system("cd ..")
-    os.system(cmd)
+    # os.system(cmd)
+    print(cmd)
 
 
 # -------------------------------------------------------------------------------- #
