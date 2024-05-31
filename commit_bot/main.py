@@ -18,6 +18,10 @@ def main():
     file_path = os.path.join(repo_path, file_name_to_modify)
     update_file(file_path, counter)
 
+    # Git commit
+    commit_message = "Update certificate, we are now the best for {} days in a row".format(counter)
+    git_commit(commit_message)
+
 
 def update_file(file_name, counter):
     print("Updating file: ", file_name)
@@ -38,6 +42,14 @@ def update_file(file_name, counter):
     # Write the file
     with open(file_name, "w") as file:
         file.writelines(file_content)
+
+
+def git_commit(commit_message):
+    print("Committing changes to git")
+
+    cmd = "git commit -a -m \"" + commit_message + "\""
+    os.system("cd ..")
+    os.system(cmd)
 
 
 # -------------------------------------------------------------------------------- #
